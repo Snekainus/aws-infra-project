@@ -12,7 +12,6 @@ This project provisions and automates:
 
 - VPC networking (multi-AZ, private/public subnets)
 - EC2 Auto Scaling Group behind ALB
-- RDS MySQL database (multi-AZ)
 - Monitoring and alerting with CloudWatch + SNS
 - Security hardening (IAM, Security Hub, GuardDuty)
 - Backup & disaster recovery automation
@@ -34,7 +33,6 @@ aws-infra-project/
 ├── modules/
 │   ├── networking/
 │   ├── compute/
-│   ├── database/
 │   ├── monitoring/
 │   ├── security/
 │   └── backup/
@@ -42,12 +40,8 @@ aws-infra-project/
 ├── scripts/
 │   ├── deploy.sh
 │   ├── destroy.sh
-│   ├── send-alerts.py
-│   └── check-backup-integrity.py
-│
+│   └── send-alerts.py
 └── README.md
-```
-
 ---
 
 ## 🛠️ How to Use
@@ -89,22 +83,18 @@ chmod +x scripts/deploy.sh
 - EBS volumes for EC2
 - Bastion Host (optional)
 
-### 3. `modules/database`
-- RDS MySQL in private subnets
-- Parameter group and subnet group
-
-### 4. `modules/monitoring`
+### 3. `modules/monitoring`
 - CloudWatch Alarms & Dashboards
 - SNS topic for alerting
 - AWS Config rules
 
-### 5. `modules/security`
+### 4. `modules/security`
 - IAM best practices (least privilege, MFA)
 - Security Groups, KMS keys
 - Security Hub, GuardDuty enabled
 - Python script: `security-scan.py` (optional)
 
-### 6. `modules/backup`
+### 5. `modules/backup`
 - AWS Backup plans for EC2, RDS, EBS
 - Python script to verify snapshots and restore flow
 
@@ -119,15 +109,6 @@ Sends CloudWatch/SNS alerts:
 ```bash
 python scripts/send-alerts.py
 ```
-
-### 🔁 `check-backup-integrity.py`
-
-Verifies backup snapshots (RDS & EBS):
-
-```bash
-python scripts/check-backup-integrity.py
-```
-
 ---
 
 ## 🔐 IAM Roles & Permissions
@@ -138,30 +119,9 @@ python scripts/check-backup-integrity.py
 
 ---
 
-## 🧠 What You Learn
-
-- Modular Terraform design (scalable, reusable)
-- Infrastructure monitoring & alerting
-- Backup automation & DR strategy
-- Real-world Python scripting for AWS ops
-- Compliance & security hardening using native services
-
----
-
 ## 📸 Architecture Diagram
 
 ![AWS Infrastructure Diagram](./images/aws_architecture_diagram.png)
 
 ---
 
-## ✅ Checklist
-
-- [x] Networking module (VPC, subnets, NAT, IGW)
-- [x] Compute module (ALB, ASG, EC2, EBS)
-- [x] Database module (RDS MySQL)
-- [x] Monitoring module (CloudWatch, Config, SNS)
-- [x] Security module (IAM, GuardDuty, Security Hub)
-- [x] Backup module (AWS Backup, Python restore check)
-- [x] Python scripts for alerts and integrity
-- [x] Shell scripts for deployment
-- [x] Clean, readable Terraform code
