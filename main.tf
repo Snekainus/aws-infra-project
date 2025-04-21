@@ -37,3 +37,15 @@ module "backup"{
     kms_key_arn="arn:aws:kms:us-east-1:846229150353:key/e3eebd26-3e68-4674-8445-c80ef55837b5"
     backup_role_arn="arn:aws:iam::846229150353:role/AWSBackupServiceRole"
 }
+
+terraform {
+  required_version = ">=1.5.0"
+
+backend "s3"{
+    bucket="myaws-infra-terraform-state"
+    key= "aws-infra-project/terraform.tfstate" 
+    region="us-east-1"
+    encrypt=true
+    dynamodb_table="terraform-locks" 
+}
+}
