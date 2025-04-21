@@ -2,7 +2,7 @@
 
 A comprehensive AWS infrastructure project built with **Terraform** and **Python**, demonstrating modular IaC design and automation skills.
 
-> 💼 Ideal for your **Upwork portfolio** as an AWS Cloud Engineer.
+>
 
 ---
 
