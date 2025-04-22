@@ -121,7 +121,7 @@ python scripts/send-alerts.py
 
 ## 📸 Architecture Diagram
 
-![AWS Infrastructure Diagram](./images/aws_architecture_diagram.png)
+![AWS Infrastructure Diagram](https://github.com/Snekainus/aws-infra-project/raw/main/AWSinfrastructure.drawio.png)
 
 ---
 
